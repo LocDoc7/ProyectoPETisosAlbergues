@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/root_frame"
+    tools:context=".TabItems.Inicio.InicioFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        tools:layout_editor_absoluteX="0dp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rv_inicio_parent">
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+</FrameLayout>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@color/white"
+    tools:context=".TabItems.Donacion.DonacionesMediosDetalleFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:gravity="left"
+        android:background="@color/secondaryColor"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="Donaciones realizadas: "
+            android:textColor="@color/white"
+            android:textSize="19dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tv_canDonaciones_Detalle_Yape"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginRight="5dp"
+            android:textAllCaps="true"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="19dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:text="Destinatario:"/>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/tv_nombreAlbergueDonacionDetalleYape"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="NOMBRE DEL ALBERGUE"
+            android:textColor="@color/black"
+            android:textSize="19dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:text="QR:"/>
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/btn_yape"
+            android:layout_marginHorizontal="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="440dp">
+            <ImageView
+                android:id="@+id/img_qrdonacion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/imgalberguedef"/>
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:text="Número:"/>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_numeroYape"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                android:text="999999999"
+                android:textColor="@color/black"
+                android:textSize="19dp"
+                android:textStyle="bold"/>
+            <ImageButton
+                android:id="@+id/btn_copyNumero"
+                android:padding="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:background="@drawable/btn_ui3"
+                android:src="@drawable/ic_copy"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:gravity="bottom"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btn_donacion_finalizada"
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_ui2"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:text="Hecho"/>
+
+    </LinearLayout>
+
+</LinearLayout>

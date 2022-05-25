@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context=".TabItems.Inicio.CategoriaAnimalesAlbergueFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@color/secondaryColor"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_nombreAlbergueCategoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="NOMBRE DEL ALBERGUE"
+            android:textColor="@color/white"
+            android:textSize="19dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_categoria_animales"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        android:padding="10dp"
+        >
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

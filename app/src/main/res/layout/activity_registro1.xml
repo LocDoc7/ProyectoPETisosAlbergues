@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/primaryLightColor"
+    style="@style/PetTheme"
+    tools:context=".ui.Registro.Registro1Activity">
+
+    <LinearLayout
+        android:background="@drawable/backuiwhite"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:background="@drawable/logo_0"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:padding="20dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrate"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/secondaryTextColor"
+                android:layout_marginTop="5dp"
+                android:text="Apellidos"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/edt_apellidos_reg1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
+                android:padding="10dp"
+                android:inputType="textPersonName"
+                android:hint="Ingrese sus apellidos"
+                android:textColor="@color/white"
+                android:textColorHint="@color/terciarioTextColor"
+                android:background="@drawable/edtback"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/secondaryTextColor"
+                android:text="Nombre"
+                android:layout_marginTop="5dp"
+                android:textSize="18sp"/>
+            <EditText
+                android:id="@+id/edt_nombres_user_reg1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="10dp"
+                android:inputType="textPersonName"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
+                android:hint="Ingrese su nombre"
+                android:textColor="@color/white"
+                android:textColorHint="@color/terciarioTextColor"
+                android:background="@drawable/edtback"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/secondaryTextColor"
+                android:text="Edad"
+                android:layout_marginTop="5dp"
+                android:textSize="18sp"/>
+            <EditText
+                android:id="@+id/edt_edad_user_reg1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="10dp"
+                android:inputType="number"
+                android:digits="1234567890"
+                android:hint="Ingrese su edad"
+                android:maxLength="2"
+                android:textColor="@color/white"
+                android:textColorHint="@color/terciarioTextColor"
+                android:background="@drawable/edtback"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/secondaryTextColor"
+                android:text="Número de celular (Whatsapp)"
+                android:layout_marginTop="5dp"
+                android:textSize="18sp"/>
+            <EditText
+                android:id="@+id/edt_celular_user_reg1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="10dp"
+                android:inputType="number"
+                android:digits="1234567890"
+                android:hint="Ingrese celular"
+                android:maxLength="9"
+                android:textColor="@color/white"
+                android:textColorHint="@color/terciarioTextColor"
+                android:background="@drawable/edtback"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/secondaryTextColor"
+                android:text="DNI"
+                android:layout_marginTop="5dp"
+                android:textSize="18sp"/>
+            <EditText
+                android:id="@+id/edt_DNI_user_reg1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="10dp"
+                android:inputType="number"
+                android:hint="Ingrese su DNI"
+                android:digits="1234567890"
+                android:maxLength="8"
+                android:textColor="@color/white"
+                android:textColorHint="@color/terciarioTextColor"
+                android:background="@drawable/edtback"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="5"
+        android:padding="20dp"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btn_siguiente_reg1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Siguiente"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_ui"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:layout_height="60dp">
+            <ProgressBar
+                android:visibility="invisible"
+                android:indeterminateDrawable="@drawable/cpb"
+                android:indeterminateDuration="@android:integer/config_longAnimTime"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/progress_bar_reg1"
+
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

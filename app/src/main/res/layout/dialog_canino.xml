@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="390dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/img_canino_detalle"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:scaleType="fitXY"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/imgalberguedef"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1db371"
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:layout_gravity="bottom">
+            <TextView
+                android:id="@+id/tvNombreCaninoDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                app:textAllCaps="true"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:text="NOMBRE CANINO"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white"/>
+            <TextView
+                android:layout_marginTop="5dp"
+                android:id="@+id/tvHistoriaCaninoDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:padding="5dp"
+                android:fontFamily="@font/caviardreams_bold"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+
+
+</LinearLayout>
