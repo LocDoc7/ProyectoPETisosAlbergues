@@ -150,10 +150,7 @@ public class RegistrarVisitaFragment extends Fragment {
     private void comprobarDatos() {
 
         hora_visita = edt_Hora.getText().toString();
-
         hayError = false;
-
-
 
         if (hora_visita.isEmpty()) {
             Toast.makeText(getContext(), "Por favor, seleccione la hora de visita", Toast.LENGTH_SHORT).show();

@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ay.proyectopetisos.Model.Albergues;
 import com.ay.proyectopetisos.R;
 import com.ay.proyectopetisos.TabItems.Inicio.CategoriaAnimalesAlbergueFragment;
+import com.bumptech.glide.Glide;
+
 import org.jetbrains.annotations.NotNull;
 import java.io.InputStream;
 import java.util.List;
@@ -27,7 +29,6 @@ public class AlberguesAdapter extends RecyclerView.Adapter<AlberguesAdapter.Albe
 
     List<Albergues> listaAlbergues;
     Context context;
-    Bitmap bitmapimg;
     ItemClickListener onItemClickListener;
 
 
@@ -51,30 +52,10 @@ public class AlberguesAdapter extends RecyclerView.Adapter<AlberguesAdapter.Albe
         holder.tv_cant_perritos.setText(String.valueOf(listaAlbergues.get(position).getCantPerritosAlbergue()));
         holder.tv_ubicacion.setText(String.valueOf(listaAlbergues.get(position).getUbiAlbergue()));
         holder.tv_celular.setText(String.valueOf(listaAlbergues.get(position).getCellAlbergue()));
-        new GetImageFromURL(holder.img_albergue).execute(String.valueOf(RUTA+listaAlbergues.get(position).getImgAlbergue()));
+        Glide.with(context).load(String.valueOf(RUTA+listaAlbergues.get(position).getImgAlbergue())).into(holder.img_albergue);
         holder.itemView.setOnClickListener(view -> {
             onItemClickListener.onItemClick(listaAlbergues.get(position));
         });
-        /*holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                Fragment fragment = new CategoriaAnimalesAlbergueFragment();
-                Bundle bundle = new Bundle();
-                int idAlbergue = listaAlbergues.get(position).getIdAlbergue();
-                String nombreAlbergue = String.valueOf(holder.tv_nombre_albergue.getText());
-                bundle.putInt("idAlbrgue",idAlbergue);
-                bundle.putString("nombreAlbergue",nombreAlbergue);
-                fragment.setArguments(bundle);
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.root_frame,fragment).addToBackStack(null).commit();
-                //notifyDataSetChanged();
-
-                //Navigation.findNavController(view).navigate(R.id.nav_detalle_tarjeta_imagen,bundle);
-
-                //Navigation.findNavController(view).navigate(R.id.nav_detalle_tarjeta,bundle);
-            }
-        });*/
-
     }
 
     @Override
@@ -98,30 +79,5 @@ public class AlberguesAdapter extends RecyclerView.Adapter<AlberguesAdapter.Albe
     }
     public interface ItemClickListener{
         void onItemClick(Albergues albergues);
-    }
-    public class GetImageFromURL extends AsyncTask<String,Void,Bitmap> {
-        ImageView imageView;
-        public GetImageFromURL(ImageView imgv){
-            this.imageView=imgv;
-        }
-        @Override
-        protected Bitmap doInBackground(String... url) {
-            String urldisplay = url[0];
-            bitmapimg = null;
-            try {
-                InputStream ist = new java.net.URL(urldisplay).openStream();
-                bitmapimg = BitmapFactory.decodeStream(ist);
-            }catch (Exception ex){
-                ex.printStackTrace();
-            }
-
-            return bitmapimg;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-            super.onPostExecute(bitmap);
-            imageView.setImageBitmap(bitmap);
-        }
     }
 }

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ay.proyectopetisos.Model.Productos;
 import com.ay.proyectopetisos.R;
+import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -26,7 +27,6 @@ import static com.ay.proyectopetisos.Util.Util.RUTA;
 public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.ProductosHolder> {
     Context context;
     List<Productos> productosList;
-    Bitmap bitmapimg;
     ItemClickListener onItemClickListener;
 
     public ProductosAdapter(List<Productos> productosList,Context context, ItemClickListener onItemClickListener) {
@@ -45,7 +45,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ProductosAdapter.ProductosHolder holder, int position) {
-        new GetImageFromURL(holder.imgProducto).execute(String.valueOf(RUTA+productosList.get(position).getImgProducto()));
+        Glide.with(context).load(String.valueOf(RUTA+productosList.get(position).getImgProducto())).into(holder.imgProducto);
         holder.tvnomPro.setText(String.valueOf(productosList.get(position).getProNombre()));
         holder.tvprecioReal.setText(String.valueOf(productosList.get(position).getProPrecioReal()));
         holder.tvprecioCollares.setText(String.valueOf(productosList.get(position).getProPrecioCollares()));
@@ -60,32 +60,6 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
     }
     public interface ItemClickListener{
         void onItemClick(Productos productos);
-    }
-
-    public class GetImageFromURL extends AsyncTask<String,Void,Bitmap> {
-        ImageView imageView;
-        public GetImageFromURL(ImageView imgv){
-            this.imageView=imgv;
-        }
-        @Override
-        protected Bitmap doInBackground(String... url) {
-            String urldisplay = url[0];
-            bitmapimg = null;
-            try {
-                InputStream ist = new java.net.URL(urldisplay).openStream();
-                bitmapimg = BitmapFactory.decodeStream(ist);
-            }catch (Exception ex){
-                ex.printStackTrace();
-            }
-
-            return bitmapimg;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-            super.onPostExecute(bitmap);
-            imageView.setImageBitmap(bitmap);
-        }
     }
 
     public class ProductosHolder extends RecyclerView.ViewHolder {

@@ -1,5 +1,6 @@
 package com.ay.proyectopetisos.Adapters;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -24,6 +25,7 @@ import com.ay.proyectopetisos.Model.CategoriaCanes;
 import com.ay.proyectopetisos.R;
 import com.ay.proyectopetisos.TabItems.Inicio.AnimalesPorAlbergueFragment;
 import com.ay.proyectopetisos.TabItems.Inicio.RegistrarVisitaFragment;
+import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
 import java.io.InputStream;
@@ -34,7 +36,7 @@ import static com.ay.proyectopetisos.Util.Util.RUTA;
 public class CanesAdapter extends RecyclerView.Adapter<CanesAdapter.CanesHolder> {
     List<Canes> canesList;
     Context context;
-    Bitmap bitmapimg;
+    //Bitmap bitmapimg;
     onClick onClick;
     Dialog mydialog;
 
@@ -60,7 +62,8 @@ public class CanesAdapter extends RecyclerView.Adapter<CanesAdapter.CanesHolder>
         holder.canEdad.setText(String.valueOf(canesList.get(position).getEdadCanino()));
         holder.canRaza.setText(String.valueOf(canesList.get(position).getRazaCanino()));
         holder.canEstado.setText(String.valueOf(canesList.get(position).getEstadoCanino()));
-        new GetImageFromURL(holder.imgCanes).execute(String.valueOf(RUTA+canesList.get(position).getImgCanino()));
+        Glide.with(context).load(String.valueOf(RUTA+canesList.get(position).getImgCanino())).into(holder.imgCanes);
+        //new GetImageFromURL(holder.imgCanes).execute(String.valueOf(RUTA+canesList.get(position).getImgCanino()));
 
         holder.imgCanes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +75,8 @@ public class CanesAdapter extends RecyclerView.Adapter<CanesAdapter.CanesHolder>
                 ImageView dialog_imag = (ImageView) mydialog.findViewById(R.id.img_canino_detalle);
                 dialog_name.setText(String.valueOf(canesList.get(position).getNombreCanino()));
                 dialog_historia.setText(String.valueOf(canesList.get(position).getHistoriaCanino()));
-                new GetImageFromURL(dialog_imag).execute(String.valueOf(RUTA+canesList.get(position).getImgCanino()));
+                Glide.with(context).load(String.valueOf(RUTA+canesList.get(position).getImgCanino())).into(dialog_imag);
+                //new GetImageFromURL(dialog_imag).execute(String.valueOf(RUTA+canesList.get(position).getImgCanino()));
                 mydialog.show();
             }
         });
@@ -114,7 +118,7 @@ public class CanesAdapter extends RecyclerView.Adapter<CanesAdapter.CanesHolder>
 
         }
     }
-    public class GetImageFromURL extends AsyncTask<String,Void,Bitmap> {
+    /*public class GetImageFromURL extends AsyncTask<String,Void,Bitmap> {
         ImageView imageView;
         public GetImageFromURL(ImageView imgv){
             this.imageView=imgv;
@@ -138,5 +142,5 @@ public class CanesAdapter extends RecyclerView.Adapter<CanesAdapter.CanesHolder>
             super.onPostExecute(bitmap);
             imageView.setImageBitmap(bitmap);
         }
-    }
+    }*/
 }

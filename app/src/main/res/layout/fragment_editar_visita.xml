@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    tools:context=".TabItems.Opciones.EditarVisitaFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:gravity="left|center"
+        android:background="@color/white"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="Visitas registradas:"
+            android:textColor="@color/black"
+            android:textSize="19dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/img_canino_edit_visita"
+                android:layout_gravity="center"
+                android:src="@drawable/imgalberguedef"
+                android:scaleType="centerInside"
+                android:layout_width="130dp"
+                android:layout_height="130dp"/>
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    app:textAllCaps="true"
+                    android:text="Nombre canino"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:id="@+id/tvNombreCanino_edit_visita"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/backgroundcolorprimary"/>
+                <LinearLayout
+                    android:layout_marginTop="7dp"
+                    android:paddingHorizontal="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|center"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/ic_sex"/>
+                    <TextView
+                        android:padding="5dp"
+                        android:gravity="left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        android:text="Sexo:"/>
+                    <TextView
+                        android:id="@+id/tv_sexo_canin_edit_visita"
+                        android:padding="5dp"
+                        android:gravity="right"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        android:text="Hembra"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="7dp"
+                    android:paddingHorizontal="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|center"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/ic_edad"/>
+                    <TextView
+                        android:padding="5dp"
+                        android:gravity="left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        android:text="Edad:"/>
+                    <TextView
+                        android:id="@+id/tv_edad_canino_edit_visita"
+                        android:padding="5dp"
+                        android:gravity="right"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        android:text="1 mes"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/backgroundcolorprimary"/>
+            <TextView
+                app:textAllCaps="true"
+                android:id="@+id/tvNombreAlbergue_edit_visita"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:text="NOMBRE ALBERGUE"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="¿Como llegar?"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    />
+                <ImageButton
+                    android:layout_weight="1"
+                    android:id="@+id/btn_comollegar_editar_visita"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@drawable/btn_ui2"
+                    android:src="@drawable/ic_map_reg2"
+                    />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/backgroundcolorprimary"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="left"
+                android:padding="5dp"
+                android:text="Fecha de su visita:"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="left|center"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    app:srcCompat="@drawable/ic_date" />
+
+                <EditText
+                    android:id="@+id/edt_fecha_edit_visita"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edtback_black"
+                    android:hint="Seleccione una fecha"
+                    android:inputType="textNoSuggestions"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/terciarioTextColor"
+                    android:focusableInTouchMode="true"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="left"
+                android:padding="5dp"
+                android:text="Hora de su visita:"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="left|center"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    app:srcCompat="@drawable/ic_time" />
+
+                <EditText
+                    android:id="@+id/edt_hora_edit_visita"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edtback_black"
+                    android:hint="Seleccione una hora"
+                    android:inputType="textNoSuggestions"
+                    android:padding="10dp"
+                    android:focusableInTouchMode="true"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/terciarioTextColor"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="left"
+                android:padding="5dp"
+                android:text="Ingrese algún comentario adicional:"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/edt_descripcion_edit_visita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edtback_black"
+                android:gravity="top"
+                android:hint="Ingrese una descripción"
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:lines="3"
+                android:maxLength="200"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/terciarioTextColor"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="8"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <Button
+            android:id="@+id/btn_actualizar_visita_edit_visita"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_ui2"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:text="Actualziar visita"/>
+        <Button
+            android:layout_marginTop="10dp"
+            android:id="@+id/btn_cancelar_visita_edit_visita"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_ui2"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:text="Cancelar Visita"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ProgressBar
+                android:visibility="invisible"
+                android:indeterminateDrawable="@drawable/cpb"
+                android:indeterminateDuration="@android:integer/config_longAnimTime"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/progress_bar_edit_visita"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

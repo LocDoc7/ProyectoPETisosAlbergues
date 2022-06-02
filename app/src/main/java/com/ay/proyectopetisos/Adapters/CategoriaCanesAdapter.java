@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ay.proyectopetisos.Model.CategoriaCanes;
 import com.ay.proyectopetisos.R;
 import com.ay.proyectopetisos.TabItems.Inicio.AnimalesPorAlbergueFragment;
+import com.bumptech.glide.Glide;
+
 import org.jetbrains.annotations.NotNull;
 import java.io.InputStream;
 import java.util.List;
@@ -26,7 +28,6 @@ import static com.ay.proyectopetisos.Util.Util.RUTA;
 public class CategoriaCanesAdapter extends RecyclerView.Adapter<CategoriaCanesAdapter.CategoriaCanesHolder>{
     List<CategoriaCanes> categoriaCanesList;
     Context context;
-    Bitmap bitmapimg;
     ItemClickListener onItemClickListener;
 
     public CategoriaCanesAdapter(List<CategoriaCanes> categoriaCanesList, Context context, ItemClickListener onItemClickListener) {
@@ -48,30 +49,10 @@ public class CategoriaCanesAdapter extends RecyclerView.Adapter<CategoriaCanesAd
         holder.tvnombreCategoria.setText(String.valueOf(categoriaCanesList.get(position).getDescCategoria()));
         holder.tvrangoCategoria.setText(String.valueOf(categoriaCanesList.get(position).getRangoCategoria()));
         holder.tvcantCategoria.setText(String.valueOf(categoriaCanesList.get(position).getCantidadCanesCategoria()));
-        new GetImageFromURL(holder.imgCategoria).execute(String.valueOf(RUTA+categoriaCanesList.get(position).getImgCategoria()));
+        Glide.with(context).load(String.valueOf(RUTA+categoriaCanesList.get(position).getImgCategoria())).into(holder.imgCategoria);
         holder.itemView.setOnClickListener(view -> {
             onItemClickListener.onItemClick(categoriaCanesList.get(position));
         });
-        /*holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                Fragment fragment = new AnimalesPorAlbergueFragment();
-                Bundle bundle = new Bundle();
-                int idAlbergue = categoriaCanesList.get(position).getIdAlbergue();
-                String nombreAlbergue = categoriaCanesList.get(position).getNombreAlbergue();
-                String nombreCategoria = String.valueOf(holder.tvnombreCategoria.getText());
-                int cantCaninos = categoriaCanesList.get(position).getCantidadCanesCategoria();
-                int idCategoria = categoriaCanesList.get(position).getIdCategoria();
-                bundle.putInt("idAlbergue",idAlbergue);
-                bundle.putInt("idCategoria",idCategoria);
-                bundle.putInt("cantCaninos",cantCaninos);
-                bundle.putString("nombreAlbergue",nombreAlbergue);
-                bundle.putString("nombreCategoria",nombreCategoria);
-                fragment.setArguments(bundle);
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.root_frame,fragment).addToBackStack(null).commit();
-            }
-        });*/
     }
 
     @Override
@@ -93,32 +74,6 @@ public class CategoriaCanesAdapter extends RecyclerView.Adapter<CategoriaCanesAd
     }
     public interface ItemClickListener{
         void onItemClick(CategoriaCanes categoriaCanes);
-    }
-
-    public class GetImageFromURL extends AsyncTask<String,Void,Bitmap> {
-        ImageView imageView;
-        public GetImageFromURL(ImageView imgv){
-            this.imageView=imgv;
-        }
-        @Override
-        protected Bitmap doInBackground(String... url) {
-            String urldisplay = url[0];
-            bitmapimg = null;
-            try {
-                InputStream ist = new java.net.URL(urldisplay).openStream();
-                bitmapimg = BitmapFactory.decodeStream(ist);
-            }catch (Exception ex){
-                ex.printStackTrace();
-            }
-
-            return bitmapimg;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-            super.onPostExecute(bitmap);
-            imageView.setImageBitmap(bitmap);
-        }
     }
 
 }
