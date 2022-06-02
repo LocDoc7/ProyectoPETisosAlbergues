@@ -56,7 +56,7 @@ public class CategoriaAnimalesAlbergueFragment extends Fragment implements Respo
         View view = inflater.inflate(R.layout.fragment_categoria_animales_albergue, container, false);
         Bundle bundle = this.getArguments();
         tvNombreAlbergue = view.findViewById(R.id.tv_nombreAlbergueCategoria);
-        idAlbergue = bundle.getInt("idAlbrgue");
+        idAlbergue = bundle.getInt("idAlbergue");
         nombreAlbergue = bundle.getString("nombreAlbergue");
         tvNombreAlbergue.setText(nombreAlbergue);
         rvCategorias = (RecyclerView) view.findViewById(R.id.rv_categoria_animales);

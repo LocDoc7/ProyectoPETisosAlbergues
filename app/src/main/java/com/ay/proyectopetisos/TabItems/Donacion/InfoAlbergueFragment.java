@@ -31,6 +31,7 @@ import com.ay.proyectopetisos.Adapters.CanesAdapter;
 import com.ay.proyectopetisos.Model.Albergues;
 import com.ay.proyectopetisos.R;
 import com.ay.proyectopetisos.Util.Util;
+import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -77,7 +78,7 @@ public class InfoAlbergueFragment extends Fragment {
         imgAlbergue = bundle.getString("imgAlbergue");
         tv_cantDonaciones.setText(String.valueOf(cantDonacion));
         tv_nomAlbergue.setText(nomAlbergue);
-        new GetImageFromURL(img_albergue).execute(String.valueOf(RUTA+imgAlbergue));
+        Glide.with(getContext()).load(String.valueOf(RUTA+imgAlbergue)).into(img_albergue);
         cargarWebService();
         cdBCP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,31 +152,6 @@ public class InfoAlbergueFragment extends Fragment {
         requestQueue.add(jsonObjectRequest);
     }
 
-    public class GetImageFromURL extends AsyncTask<String,Void, Bitmap> {
-        ImageView imageView;
-        public GetImageFromURL(ImageView imgv){
-            this.imageView=imgv;
-        }
-        @Override
-        protected Bitmap doInBackground(String... url) {
-            String urldisplay = url[0];
-            bitmapimg = null;
-            try {
-                InputStream ist = new java.net.URL(urldisplay).openStream();
-                bitmapimg = BitmapFactory.decodeStream(ist);
-            }catch (Exception ex){
-                ex.printStackTrace();
-            }
-
-            return bitmapimg;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-            super.onPostExecute(bitmap);
-            imageView.setImageBitmap(bitmap);
-        }
-    }
     private boolean isWhatsappInstalled(){
         PackageManager packageManager = getContext().getPackageManager();
         boolean whatsappIsntalled;

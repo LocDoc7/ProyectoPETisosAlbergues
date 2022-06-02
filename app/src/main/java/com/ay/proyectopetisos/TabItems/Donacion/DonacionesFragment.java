@@ -122,7 +122,5 @@ public class DonacionesFragment extends Fragment {
             }
         });
         requestQueue.add(jsonObjectRequest);
-
     }
-
 }

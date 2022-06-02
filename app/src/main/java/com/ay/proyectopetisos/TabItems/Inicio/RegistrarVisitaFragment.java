@@ -40,6 +40,7 @@ import com.ay.proyectopetisos.R;
 import com.ay.proyectopetisos.Util.Util;
 import com.ay.proyectopetisos.ui.Login.LoginActivity;
 import com.ay.proyectopetisos.ui.Registro.Registro3Activity;
+import com.bumptech.glide.Glide;
 
 import java.io.InputStream;
 import java.util.Calendar;
@@ -57,7 +58,6 @@ public class RegistrarVisitaFragment extends Fragment {
     ProgressBar progressBar;
     int idCanino,idPersona;
     String nombreAlbergue,nombreCanino,sexoCanino,edadCanino,imgenCanino,hora_visita,fecha_visita="";
-    Bitmap bitmapimg;
     int T1Hour,T1Minute;
     private boolean hayError;
     StringRequest stringRequest;
@@ -98,7 +98,7 @@ public class RegistrarVisitaFragment extends Fragment {
         tv_nombreCanino.setText(nombreCanino);
         tv_sexoCanino.setText(sexoCanino);
         tv_edadCanino.setText(edadCanino);
-        new GetImageFromURL(img_canino).execute(String.valueOf(RUTA+imgenCanino));
+        Glide.with(getContext()).load(String.valueOf(RUTA+imgenCanino)).into(img_canino);
 
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
@@ -150,10 +150,7 @@ public class RegistrarVisitaFragment extends Fragment {
     private void comprobarDatos() {
 
         hora_visita = edt_Hora.getText().toString();
-
         hayError = false;
-
-
 
         if (hora_visita.isEmpty()) {
             Toast.makeText(getContext(), "Por favor, seleccione la hora de visita", Toast.LENGTH_SHORT).show();
@@ -226,29 +223,4 @@ public class RegistrarVisitaFragment extends Fragment {
         btn_registrarVisita.setEnabled(true);
     }
 
-    public class GetImageFromURL extends AsyncTask<String,Void, Bitmap> {
-        ImageView imageView;
-        public GetImageFromURL(ImageView imgv){
-            this.imageView=imgv;
-        }
-        @Override
-        protected Bitmap doInBackground(String... url) {
-            String urldisplay = url[0];
-            bitmapimg = null;
-            try {
-                InputStream ist = new java.net.URL(urldisplay).openStream();
-                bitmapimg = BitmapFactory.decodeStream(ist);
-            }catch (Exception ex){
-                ex.printStackTrace();
-            }
-
-            return bitmapimg;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-            super.onPostExecute(bitmap);
-            imageView.setImageBitmap(bitmap);
-        }
-    }
 }

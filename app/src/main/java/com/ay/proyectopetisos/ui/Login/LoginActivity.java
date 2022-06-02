@@ -49,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText edtUsuario, edtContrasenia;
     TextView tvOlvidasteContraseña;
     ProgressBar progressBar;
-    StringRequest stringRequest;
     RequestQueue requestQueue;
     JsonObjectRequest jsonObjectRequest;
     int idusuario,cantDonaciones, cantCollares;
@@ -82,7 +81,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 limpiar_pantalla();
                 Intent i = new Intent(LoginActivity.this, Registro1Activity.class);
-                //Intent i = new Intent(LoginActivity.this, MapsActivityReg.class);
                 startActivity(i);
 
             }
@@ -162,7 +160,6 @@ public class LoginActivity extends AppCompatActivity {
                                 idusuario = jsonObject.optInt("IdPersona");
                                 cantDonaciones = jsonObject.optInt("perCantDonaciones");
                                 cantCollares = jsonObject.optInt("perCantCollares");
-                                //Toast.makeText(LoginActivity.this, String.valueOf(idusuario), Toast.LENGTH_SHORT).show();
                             }
                         }catch (JSONException e){
                             e.printStackTrace();

@@ -110,7 +110,7 @@ public class AnimalesPorAlbergueFragment extends Fragment implements Response.Li
                 canesArrayList.add(canes);
 
             }
-            canesAdapter = new CanesAdapter(canesArrayList, this.getContext(), new CanesAdapter.onClick() {
+            canesAdapter = new CanesAdapter(canesArrayList,this.getContext(), new CanesAdapter.onClick() {
                 @Override
                 public void onClick(Canes canes) {
                     /*Toast.makeText(getContext(), "Visita", Toast.LENGTH_SHORT).show();*/

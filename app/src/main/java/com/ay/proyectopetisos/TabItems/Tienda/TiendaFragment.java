@@ -30,6 +30,7 @@ import com.ay.proyectopetisos.Model.Albergues;
 import com.ay.proyectopetisos.Model.Productos;
 import com.ay.proyectopetisos.R;
 import com.ay.proyectopetisos.TabItems.Donacion.InfoAlbergueFragment;
+import com.ay.proyectopetisos.TabItems.Inicio.RegistrarVisitaFragment;
 import com.ay.proyectopetisos.Util.Util;
 
 import org.json.JSONArray;
@@ -39,7 +40,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class TiendaFragment extends Fragment {
-    GridView gridViewProductos;
     RecyclerView rv_productos;
     TextView catCollaresUsuario;
     int cantCollares;
@@ -55,11 +55,9 @@ public class TiendaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_tienda, container, false);
         SharedPreferences sp1 = getActivity().getSharedPreferences("preferencias", Context.MODE_PRIVATE);
         cantCollares = sp1.getInt("cantCollares",0);
-        //gridViewProductos = (GridView) view.findViewById(R.id.gridView);
         rv_productos = (RecyclerView) view.findViewById(R.id.rv_productos_tienda);
         rv_productos.setHasFixedSize(true);
         catCollaresUsuario = view.findViewById(R.id.tv_canMonedas);
@@ -99,16 +97,30 @@ public class TiendaFragment extends Fragment {
                     productosAdapter = new ProductosAdapter(productosArrayList, getContext(), new ProductosAdapter.ItemClickListener() {
                         @Override
                         public void onItemClick(Productos productos) {
-                            Toast.makeText(getContext(), "Click en:"+productos.getIdProducto(), Toast.LENGTH_SHORT).show();
+                            AppCompatActivity activity = (AppCompatActivity) getContext();
+                            Fragment fragment = new IntercambiarProductoFragment();
+                            Bundle bundle = new Bundle();
+                            int idAlbergue = productos.getId_Albergue();
+                            String nomProducto = productos.getProNombre();
+                            String descProducto = productos.getProDescripcion();
+                            float preReal = productos.getProPrecioReal();
+                            float preCollares = productos.getProPrecioCollares();
+                            String proImg = productos.getImgProducto();
+                            int idProducto = productos.getIdProducto();
+                            bundle.putString("nomProducto",nomProducto);
+                            bundle.putString("descProducto",descProducto);
+                            bundle.putString("proImg",proImg);
+                            bundle.putFloat("preReal",preReal);
+                            bundle.putFloat("preCollares",preCollares);
+                            bundle.putInt("idAlbergue",idAlbergue);
+                            bundle.putInt("idProducto",idProducto);
+                            bundle.putInt("canCollares",cantCollares);
+                            fragment.setArguments(bundle);
+                            activity.getSupportFragmentManager().beginTransaction().replace(R.id.rootTienda_frame,fragment).addToBackStack(null).commit();
+                            //Toast.makeText(getContext(), "Click en:"+productos.getIdProducto(), Toast.LENGTH_SHORT).show();
                         }
                     });
                     rv_productos.setAdapter(productosAdapter);
-                    /*gridViewProductos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                            Toast.makeText(getContext(), "Click en:", Toast.LENGTH_SHORT).show();
-                        }
-                    });*/
 
                 }catch (JSONException e){
                     e.printStackTrace();

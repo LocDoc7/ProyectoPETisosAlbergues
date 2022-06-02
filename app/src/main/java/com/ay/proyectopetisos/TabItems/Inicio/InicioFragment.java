@@ -92,7 +92,7 @@ public class InicioFragment extends Fragment implements Response.Listener<JSONOb
                     Bundle bundle = new Bundle();
                     int idAlbergue = albergues.getIdAlbergue();
                     String nombreAlbergue = albergues.getNombreAlbergue();
-                    bundle.putInt("idAlbrgue",idAlbergue);
+                    bundle.putInt("idAlbergue",idAlbergue);
                     bundle.putString("nombreAlbergue",nombreAlbergue);
                     fragment.setArguments(bundle);
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.root_frame,fragment).addToBackStack(null).commit();
