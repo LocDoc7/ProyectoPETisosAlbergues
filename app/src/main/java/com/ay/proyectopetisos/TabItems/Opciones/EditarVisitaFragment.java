@@ -74,6 +74,10 @@ public class EditarVisitaFragment extends Fragment {
     RequestQueue requestQueue;
     StringRequest stringRequest;
     JsonObjectRequest jsonObjectRequest;
+<<<<<<< HEAD
+=======
+    Bitmap bitmapimg;
+>>>>>>> origin/master
     Dialog Mydialog;
     int T1Hour,T1Minute;
     private boolean hayError;
@@ -129,6 +133,10 @@ public class EditarVisitaFragment extends Fragment {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         month = month+1;
+<<<<<<< HEAD
+=======
+                        //String date = dayOfMonth+"/"+month+"/"+year;
+>>>>>>> origin/master
                         fecha_visita = year+"/"+month+"/"+dayOfMonth;
                         edtFecha.setText(fecha_visita);
                     }
@@ -197,7 +205,10 @@ public class EditarVisitaFragment extends Fragment {
         Mydialog.findViewById(R.id.btnConfirmarDialog).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+<<<<<<< HEAD
                 Mydialog.dismiss();
+=======
+>>>>>>> origin/master
                 cargarWebServiceEliminar();
             }
         });
