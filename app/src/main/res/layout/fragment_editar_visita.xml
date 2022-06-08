@@ -136,7 +136,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@color/backgroundcolorprimary"/>
             <TextView
-<<<<<<< HEAD
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -146,16 +145,11 @@
                 android:textSize="15sp"
                 />
             <TextView
-=======
->>>>>>> origin/master
                 app:textAllCaps="true"
                 android:id="@+id/tvNombreAlbergue_edit_visita"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-<<<<<<< HEAD
-=======
                 android:layout_marginTop="5dp"
->>>>>>> origin/master
                 android:layout_gravity="center"
                 android:text="NOMBRE ALBERGUE"
                 android:textColor="@color/black"
