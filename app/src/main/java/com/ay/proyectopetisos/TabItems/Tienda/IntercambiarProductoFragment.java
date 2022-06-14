@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,6 +58,7 @@ public class IntercambiarProductoFragment extends Fragment {
     TextView tvCantCollaresIntercambio,tvNombreProducto,tvPrecioCollar,tvDescripcionProducto,tvPrecioSoles,tvNombAlbergue,tvSubTotal,tvTotal;
     ImageView imgProducto,icPrecioTotal,icPrecioSubtotal;
     ImageButton btnComoLlegar;
+    ProgressBar pbLoading;
     Spinner spCantidad;
     Button btnSiguienteIntercambio;
     CheckBox chCollares,chSoles;
@@ -107,6 +109,7 @@ public class IntercambiarProductoFragment extends Fragment {
         btnSiguienteIntercambio = view.findViewById(R.id.btn_siguiente_intercambio);
         chCollares = view.findViewById(R.id.check_collares);
         chSoles = view.findViewById(R.id.check_soles);
+        pbLoading = view.findViewById(R.id.progress_bar_intercambio);
         tvCantCollaresIntercambio.setText(String.valueOf(cantCollares));
         cargarDatosProducto();
 
@@ -164,12 +167,13 @@ public class IntercambiarProductoFragment extends Fragment {
     }
 
     private void comprobarCantCollares() {
+        pbLoading.setVisibility(View.VISIBLE);
         if (precioTipoCollares){
             if (cantCollares<PrecioTotal){
                 Toast.makeText(getContext(), "Ups!. No cuenta con collares suficientes :C", Toast.LENGTH_SHORT).show();
             }else {
-                registrarIntercambioProducto();
                 costoDiferencial = PrecioTotal;
+                registrarIntercambioProducto();
                 //cargarDialog();
             }
         }else{
@@ -218,6 +222,7 @@ public class IntercambiarProductoFragment extends Fragment {
     }
 
     private void cargarDialog(int id_Venta,String ven_Estado,String pro_Nombre,int det_cantidad,double det_precio,float collaresRest) {
+        pbLoading.setVisibility(View.GONE);
         SharedPreferences preferences = getContext().getSharedPreferences("preferencias", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("cantCollares",(int) collaresRest);

@@ -32,7 +32,6 @@ import static com.ay.proyectopetisos.Util.Util.RUTA;
 public class VisitasRegistradasAdapter extends RecyclerView.Adapter<VisitasRegistradasAdapter.VisitasRegistradasHolder> {
     Context context;
     List<VisitasRegistradas> visitasRegistradasList;
-    Bitmap bitmapimg;
     ItemClickListener onItemClickListener;
 
     public VisitasRegistradasAdapter(List<VisitasRegistradas> visitasRegistradasList,Context context, ItemClickListener onItemClickListener) {

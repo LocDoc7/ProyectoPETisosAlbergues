@@ -140,66 +140,58 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void cargarWebService(String usuario, String contra) {
-
         progressBar.setVisibility(View.VISIBLE);
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        String url = Util.RUTA+"consultar_usuario.php?usuario="+usuario+"&contrasenia="+contra;
+        url = url.replace(" ", "%20");
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
-            public void run() {
-                String url = Util.RUTA+"consultar_usuario.php?usuario="+usuario+"&contrasenia="+contra;
-                url = url.replace(" ", "%20");
-                jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        progressBar.setVisibility(View.GONE);
-                        JSONArray json = response.optJSONArray("consulta");
-                        try {
-                            for (int i = 0; i<json.length();i++){
-                                JSONObject jsonObject = null;
-                                jsonObject = json.getJSONObject(i);
-                                idusuario = jsonObject.optInt("IdPersona");
-                                cantDonaciones = jsonObject.optInt("perCantDonaciones");
-                                cantCollares = jsonObject.optInt("perCantCollares");
-                            }
-                        }catch (JSONException e){
-                            e.printStackTrace();
-                            Toast.makeText(LoginActivity.this, "Error" + response, Toast.LENGTH_SHORT).show();
-                        }
-                        SharedPreferences preferences = getSharedPreferences("preferencias", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = preferences.edit();
-                        editor.putInt("idUsuario",idusuario);
-                        editor.putInt("cantDonaciones",cantDonaciones);
-                        editor.putString("ususario",edtUsuario.getText().toString());
-                        editor.putString("contraseña",edtContrasenia.getText().toString());
-                        editor.putInt("cantCollares",cantCollares);
-                        editor.commit();
-                        Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(i);
-                        finish();
+            public void onResponse(JSONObject response) {
+                progressBar.setVisibility(View.GONE);
+                JSONArray json = response.optJSONArray("consulta");
+                try {
+                    for (int i = 0; i<json.length();i++){
+                        JSONObject jsonObject = null;
+                        jsonObject = json.getJSONObject(i);
+                        idusuario = jsonObject.optInt("IdPersona");
+                        cantDonaciones = jsonObject.optInt("perCantDonaciones");
+                        cantCollares = jsonObject.optInt("perCantCollares");
                     }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        progressBar.setVisibility(View.GONE);
-                        Toast.makeText(LoginActivity.this, "Ups!, ha ocurrido un error.", Toast.LENGTH_SHORT).show();
-                        edtUsuario.setEnabled(true);
-                        edtContrasenia.setEnabled(true);
-                        btn_iniciar.setEnabled(true);
-                        btn_registrar.setEnabled(true);
-                        tvOlvidasteContraseña.setEnabled(true);
-                        edtUsuario.setTextColor(Color.parseColor("#FFFFFF"));
-                        edtContrasenia.setTextColor(Color.parseColor("#FFFFFF"));
-                        edtContrasenia.setText("");
-                        edtContrasenia.setError("Ingrese una contraseña valida");
-                        btn_iniciar.setTextColor(Color.parseColor("#FFFFFF"));
-                        btn_registrar.setTextColor(Color.parseColor("#FFFFFF"));
-                        tvOlvidasteContraseña.setTextColor(Color.parseColor("#FFFFFF"));
-                    }
-                });
-                requestQueue.add(jsonObjectRequest);
+                }catch (JSONException e){
+                    e.printStackTrace();
+                    Toast.makeText(LoginActivity.this, "Error" + response, Toast.LENGTH_SHORT).show();
+                }
+                SharedPreferences preferences = getSharedPreferences("preferencias", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("idUsuario",idusuario);
+                editor.putInt("cantDonaciones",cantDonaciones);
+                editor.putString("ususario",edtUsuario.getText().toString());
+                editor.putString("contraseña",edtContrasenia.getText().toString());
+                editor.putInt("cantCollares",cantCollares);
+                editor.commit();
+                Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(i);
+                finish();
             }
-        },1000);
-
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressBar.setVisibility(View.GONE);
+                Toast.makeText(LoginActivity.this, "Ups!, ha ocurrido un error.", Toast.LENGTH_SHORT).show();
+                edtUsuario.setEnabled(true);
+                edtContrasenia.setEnabled(true);
+                btn_iniciar.setEnabled(true);
+                btn_registrar.setEnabled(true);
+                tvOlvidasteContraseña.setEnabled(true);
+                edtUsuario.setTextColor(Color.parseColor("#FFFFFF"));
+                edtContrasenia.setTextColor(Color.parseColor("#FFFFFF"));
+                edtContrasenia.setText("");
+                edtContrasenia.setError("Ingrese una contraseña valida");
+                btn_iniciar.setTextColor(Color.parseColor("#FFFFFF"));
+                btn_registrar.setTextColor(Color.parseColor("#FFFFFF"));
+                tvOlvidasteContraseña.setTextColor(Color.parseColor("#FFFFFF"));
+            }
+        });
+        requestQueue.add(jsonObjectRequest);
     }
 
     private void limpiar_pantalla(){

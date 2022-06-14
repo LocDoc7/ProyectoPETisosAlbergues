@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/primaryLightColor"
+    android:layout_margin="2.5dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginBottom="3dp"
+        android:layout_marginRight="3dp"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_marginTop="7dp"
+            android:paddingHorizontal="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|center"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:padding="5dp"
+                    android:gravity="left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:text="Consejo traido por:"/>
+                <TextView
+                    android:textAlignment="center"
+                    android:id="@+id/tv_nomAlbergueConsejo"
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:textAllCaps="true"
+                    android:textSize="17sp"
+                    android:text="Albergue"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center|right"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/ic_albergueConsejo"
+                    android:scaleType="centerInside"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/backgroundcolorprimary"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:textAllCaps="true"
+            android:text="Titulo"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:id="@+id/tvTituloConsejo"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/backgroundcolorprimary"/>
+        <FrameLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            >
+            <ImageView
+                android:id="@+id/img_consejo"
+                android:layout_gravity="center"
+                android:src="@drawable/imgalberguedef"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <!--<View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/degradadocanino"/>-->
+        </FrameLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="5dp"
+                android:id="@+id/tvdescConsejoAlbergue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:padding="5dp"
+                android:fontFamily="@font/caviardreams_bold"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_conocer_mas_consejo"
+            android:layout_gravity="right"
+            android:layout_marginTop="7dp"
+            android:paddingHorizontal="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_ui4"
+            android:drawableLeft="@drawable/ic_row"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:text="@string/conoce_mas"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

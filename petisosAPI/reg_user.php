@@ -14,7 +14,7 @@ $c_usuario=$_POST['usuario'];
 $c_pwd1=$_POST['pwd1'];
 
 if(empty($_POST['pathimg'])){
-    $SERVER_URL = "";
+    $imagePath = "";
 }else{
     $imagePath = "img2/$c_dni.jpg";
     //$SERVER_URL = "http://192.168.1.2/API/petisosAPI/$imagePath";

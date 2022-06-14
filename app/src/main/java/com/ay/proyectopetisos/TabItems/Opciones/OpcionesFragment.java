@@ -1,17 +1,23 @@
 package com.ay.proyectopetisos.TabItems.Opciones;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.ay.proyectopetisos.R;
 import com.ay.proyectopetisos.TabItems.Inicio.AnimalesPorAlbergueFragment;
+import com.ay.proyectopetisos.ui.Login.LoginActivity;
 
 public class OpcionesFragment extends Fragment implements View.OnClickListener {
     CardView cdUsuario,cdVisitas,cdCodigos,cdConsejos,cdAyuda,cdCerrarSesión;
@@ -33,7 +39,11 @@ public class OpcionesFragment extends Fragment implements View.OnClickListener {
         cdCerrarSesión = view.findViewById(R.id.card_cerrar_sesion);
 
         cdVisitas.setOnClickListener(this);
-
+        cdCodigos.setOnClickListener(this);
+        cdConsejos.setOnClickListener(this);
+        cdUsuario.setOnClickListener(this);
+        cdAyuda.setOnClickListener(this);
+        cdCerrarSesión.setOnClickListener(this);
         return view;
     }
 
@@ -44,6 +54,41 @@ public class OpcionesFragment extends Fragment implements View.OnClickListener {
                 AppCompatActivity activity = (AppCompatActivity) getContext();
                 Fragment fragment = new VisitasRegistradasFragment();
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.rootOpciones_frame,fragment).addToBackStack(null).commit();
+                break;
+            }
+            case R.id.card_codigos:{
+                AppCompatActivity activity = (AppCompatActivity) getContext();
+                Fragment fragment = new CodigosIntercambioFragment();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.rootOpciones_frame,fragment).addToBackStack(null).commit();
+                break;
+            }
+            case R.id.card_consejos_salud:{
+                AppCompatActivity activity = (AppCompatActivity) getContext();
+                Fragment fragment = new ConsejosSaludFragment();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.rootOpciones_frame,fragment).addToBackStack(null).commit();
+                break;
+            }
+            case R.id.card_usuario:{
+                AppCompatActivity activity = (AppCompatActivity) getContext();
+                Fragment fragment = new UsuarioFragment();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.rootOpciones_frame,fragment).addToBackStack(null).commit();
+                break;
+            }
+            case R.id.card_ayuda:{
+                AppCompatActivity activity = (AppCompatActivity) getContext();
+                Fragment fragment = new AyudaFragment();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.rootOpciones_frame,fragment).addToBackStack(null).commit();
+                break;
+            }
+            case R.id.card_cerrar_sesion:{
+                SharedPreferences preferences = getActivity().getSharedPreferences("preferencias", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("ususario","");
+                editor.putString("contraseña","");
+                editor.commit();
+                Intent i = new Intent(getActivity(), LoginActivity.class);
+                startActivity(i);
+                getActivity().finish();
                 break;
             }
         }

@@ -12,6 +12,7 @@
     <string name="title_activity_maps_reg">Map</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="conoce_mas">Conoce más</string>
 
     <string-array name="cantidad">
         <item>1</item>

@@ -1,11 +1,14 @@
 package com.ay.proyectopetisos;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.ay.proyectopetisos.Adapters.TabsAdapter;
 import com.ay.proyectopetisos.TabItems.Donacion.DonacionesFragment;
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                limpiarBackStack();
                 viewPager.setCurrentItem(tab.getPosition());
                 if (tab.getPosition() == 0) {
                     tabsAdapter.notifyDataSetChanged();
@@ -74,5 +78,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void limpiarBackStack() {
+        FragmentManager fm = getSupportFragmentManager();
+        for (int i = 0;i < fm.getBackStackEntryCount();++i){
+            fm.popBackStack();
+        }
     }
 }
