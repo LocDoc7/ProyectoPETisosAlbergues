@@ -103,7 +103,7 @@
                         android:textColor="@color/black"
                         android:layout_marginTop="5dp"
                         android:text="Apellidos"
-                        android:textSize="18sp"/>
+                        android:textSize="17sp"/>
 
                     <EditText
                         android:id="@+id/edt_ap_perfil"
@@ -128,7 +128,7 @@
                         android:textColor="@color/black"
                         android:text="Nombres"
                         android:layout_marginTop="5dp"
-                        android:textSize="18sp"/>
+                        android:textSize="17sp"/>
                     <EditText
                         android:id="@+id/edt_nom_perfil"
                         android:layout_width="match_parent"
@@ -152,7 +152,7 @@
                         android:textColor="@color/black"
                         android:layout_marginTop="5dp"
                         android:text="Seleccione su ubicacion"
-                        android:textSize="18sp"/>
+                        android:textSize="17sp"/>
                     <TextView
                         android:id="@+id/tv_ubi_perfil"
                         android:layout_width="match_parent"
@@ -182,7 +182,7 @@
                         android:textColor="@color/black"
                         android:text="Añade una descipción a tu perfil"
                         android:layout_marginTop="5dp"
-                        android:textSize="18sp"/>
+                        android:textSize="17sp"/>
                     <EditText
                         android:id="@+id/edt_desc_perfil"
                         android:layout_width="match_parent"
@@ -203,7 +203,7 @@
                     android:id="@+id/btn_guardar_cambios_perfil"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:textSize="17sp"
                     android:textColor="@color/white"
                     android:text="Guardar cambios"
                     android:background="@drawable/btn_ui2"/>

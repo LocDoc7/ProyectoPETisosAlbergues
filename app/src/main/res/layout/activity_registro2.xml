@@ -49,7 +49,7 @@
                 android:textColor="@color/secondaryTextColor"
                 android:layout_marginTop="5dp"
                 android:text="Seleccione su ubicacion"
-                android:textSize="18sp"/>
+                android:textSize="17sp"/>
             <TextView
                 android:id="@+id/tv_ubicacion_reg2"
                 android:layout_width="match_parent"
@@ -81,7 +81,7 @@
                 android:textColor="@color/secondaryTextColor"
                 android:layout_marginTop="5dp"
                 android:text="Seleccione una foto de perfil"
-                android:textSize="18sp"/>
+                android:textSize="17sp"/>
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_marginTop="15dp"
                 android:id="@+id/user_img_circle"
@@ -104,7 +104,7 @@
                 android:textColor="@color/secondaryTextColor"
                 android:text="Añade una descipción a tu perfil"
                 android:layout_marginTop="5dp"
-                android:textSize="18sp"/>
+                android:textSize="17sp"/>
             <EditText
                 android:id="@+id/edt_descripcion_user_reg2"
                 android:layout_width="match_parent"
@@ -134,7 +134,7 @@
             android:id="@+id/btn_siguiente_reg2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:textColor="@color/white"
             android:text="Siguiente"
             android:background="@drawable/btn_ui"/>

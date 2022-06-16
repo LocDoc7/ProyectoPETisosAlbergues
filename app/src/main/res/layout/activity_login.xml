@@ -49,7 +49,7 @@
                 android:textColor="@color/secondaryTextColor"
                 android:layout_marginTop="5dp"
                 android:text="Usuario"
-                android:textSize="18sp"/>
+                android:textSize="17sp"/>
             <EditText
                 android:layout_marginTop="5dp"
                 android:id="@+id/edt_usuario_login"
@@ -75,7 +75,7 @@
                 android:textColor="@color/secondaryTextColor"
                 android:text="Contraseña"
                 android:layout_marginTop="5dp"
-                android:textSize="18sp"/>
+                android:textSize="17sp"/>
             <EditText
                 android:id="@+id/edt_password_login"
                 android:layout_width="match_parent"
@@ -103,7 +103,7 @@
             android:id="@+id/btn_iniciar_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:text="Iniciar"
             android:textColor="@color/white"
             android:background="@drawable/btn_ui"/>
@@ -120,7 +120,7 @@
             android:layout_marginTop="5dp"
             android:text="Registrate"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:background="@drawable/btn_ui"/>
         <TextView
             android:id="@+id/tv_olvide_contra_login"

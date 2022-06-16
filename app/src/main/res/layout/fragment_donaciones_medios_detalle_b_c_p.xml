@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:text="Destinatario:"/>
 
         <TextView
@@ -84,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:text="Número de cuenta:"/>
         <LinearLayout
             android:layout_marginTop="5dp"
@@ -117,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:text="Número CCI (Interbancario):"/>
         <LinearLayout
             android:layout_marginTop="5dp"

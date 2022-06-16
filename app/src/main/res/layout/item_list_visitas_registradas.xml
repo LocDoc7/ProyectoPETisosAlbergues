@@ -130,7 +130,7 @@
                 android:textAllCaps="true"
                 android:text="EN ESPERA"
                 android:textColor="@color/white"
-                android:textSize="15dp"
+                android:textSize="17sp"
                 android:textStyle="bold"/>
         </LinearLayout>
     </LinearLayout>

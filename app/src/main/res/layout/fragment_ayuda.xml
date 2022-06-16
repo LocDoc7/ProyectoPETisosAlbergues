@@ -7,10 +7,9 @@
     tools:context=".TabItems.Opciones.AyudaFragment">
 
     <View
-        android:id="@+id/splash"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/splashscreenback1">
+        android:background="@drawable/fondohuesos">
     </View>
 
     <LinearLayout
@@ -27,34 +26,41 @@
             android:layout_weight="1"
             android:gravity="center">
             <ImageView
-                android:layout_width="200dp"
-                android:layout_height="90dp"
-                android:background="@drawable/logo_0" />
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
+                android:layout_width="360dp"
+                android:layout_height="170dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/logo_0"
+                />
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/edtback_black"
-                android:gravity="left"
-                android:justificationMode="inter_word"
-                android:padding="10dp"
-                android:text="La aplicación móvil Petisos, tiene como finalidad brindar a los albergues una herramienta digital que permita facilitar el proceso de adopciones, siendo esta una solución gratuita a la problemática de la falta de adopciones y apoyo económico. Con solo usar esta App, ya estas apoyando a los albergues que más lo necesitan."
-                android:textColor="@color/white"
-                android:textSize="15sp" />
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:justificationMode="inter_word"
+                    android:padding="10dp"
+                    android:text="La aplicación móvil Petisos, tiene como finalidad brindar a los albergues una herramienta digital que permita facilitar el proceso de adopciones, siendo esta una solución gratuita a la problemática de la falta de adopciones y apoyo económico. Con solo usar esta App, ya estas apoyando a los albergues que más lo necesitan."
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Contactenos"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:layout_marginTop="40dp"
+                android:textAlignment="center"
+                android:text="CONTACTENOS"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/white"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="5dp"
                 >
@@ -87,11 +93,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="15sp"
+                            android:textSize="17sp"
                             android:text="72855310@continental.edu.pe"/>
                     </LinearLayout>
                     <LinearLayout
                         android:paddingHorizontal="5dp"
+                        android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left|center"
@@ -114,11 +121,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="15sp"
+                            android:textSize="17sp"
                             android:text="912898962"/>
                     </LinearLayout>
                     <LinearLayout
                         android:paddingHorizontal="5dp"
+                        android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left|center"
@@ -141,7 +149,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="15sp"
+                            android:textSize="17sp"
                             android:text="ANTONY CRISTOBAL ZAMBRANO"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -153,7 +161,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="3"
+            android:layout_weight="5"
             android:gravity="center|bottom">
             <LinearLayout
                 android:paddingHorizontal="5dp"
@@ -170,7 +178,7 @@
                     android:gravity="left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="17sp"
                     android:text="2022 Petisos"/>
             </LinearLayout>
@@ -180,9 +188,9 @@
                 android:gravity="center"
                 android:justificationMode="inter_word"
                 android:padding="10dp"
-                android:text="Un proyecto de: ERROR GROUP"
-                android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:text="Un proyecto de: Antony Cristobal"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
         </LinearLayout>
 
 

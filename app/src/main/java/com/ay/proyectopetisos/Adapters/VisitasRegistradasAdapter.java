@@ -61,7 +61,7 @@ public class VisitasRegistradasAdapter extends RecyclerView.Adapter<VisitasRegis
             onItemClickListener.onItemClick(visitasRegistradasList.get(position));
         });
         if(estado.equals("EN ESPERA")){
-            holder.lnEstado.setBackground(context.getResources().getDrawable(R.color.primaryColor));
+            holder.lnEstado.setBackground(context.getResources().getDrawable(R.color.primaryLightColor));
         }else if (estado.equals("CONFIRMADO")){
             holder.lnEstado.setBackground(context.getResources().getDrawable(R.color.secondaryColor));
         }

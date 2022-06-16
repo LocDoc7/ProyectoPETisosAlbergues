@@ -49,7 +49,7 @@
                 android:textColor="@color/secondaryTextColor"
                 android:layout_marginTop="5dp"
                 android:text="Apellidos"
-                android:textSize="18sp"/>
+                android:textSize="17sp"/>
 
             <EditText
                 android:id="@+id/edt_apellidos_reg1"
@@ -76,7 +76,7 @@
                 android:textColor="@color/secondaryTextColor"
                 android:text="Nombre"
                 android:layout_marginTop="5dp"
-                android:textSize="18sp"/>
+                android:textSize="17sp"/>
             <EditText
                 android:id="@+id/edt_nombres_user_reg1"
                 android:layout_width="match_parent"
@@ -101,7 +101,7 @@
                 android:textColor="@color/secondaryTextColor"
                 android:text="Edad"
                 android:layout_marginTop="5dp"
-                android:textSize="18sp"/>
+                android:textSize="17sp"/>
             <EditText
                 android:id="@+id/edt_edad_user_reg1"
                 android:layout_width="match_parent"
@@ -127,7 +127,7 @@
                 android:textColor="@color/secondaryTextColor"
                 android:text="Número de celular (Whatsapp)"
                 android:layout_marginTop="5dp"
-                android:textSize="18sp"/>
+                android:textSize="17sp"/>
             <EditText
                 android:id="@+id/edt_celular_user_reg1"
                 android:layout_width="match_parent"
@@ -153,7 +153,7 @@
                 android:textColor="@color/secondaryTextColor"
                 android:text="DNI"
                 android:layout_marginTop="5dp"
-                android:textSize="18sp"/>
+                android:textSize="17sp"/>
             <EditText
                 android:id="@+id/edt_DNI_user_reg1"
                 android:layout_width="match_parent"
@@ -181,7 +181,7 @@
             android:id="@+id/btn_siguiente_reg1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:text="Siguiente"
             android:textColor="@color/white"
             android:background="@drawable/btn_ui"/>

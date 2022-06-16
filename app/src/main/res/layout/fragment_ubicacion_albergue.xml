@@ -68,7 +68,7 @@
                 android:background="@drawable/btn_ui2"
                 android:text="¡Lo tengo!"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="17sp" />
         </LinearLayout>
 
     </FrameLayout>

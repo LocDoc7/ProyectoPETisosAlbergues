@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:text="Destinatario:"/>
 
         <TextView
@@ -61,14 +61,14 @@
             android:textAllCaps="true"
             android:text="NOMBRE DEL ALBERGUE"
             android:textColor="@color/black"
-            android:textSize="19dp"
+            android:textSize="19sp"
             android:textStyle="bold"/>
         <TextView
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:text="QR:"/>
         <androidx.cardview.widget.CardView
             app:cardCornerRadius="5dp"
@@ -90,7 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:text="Número:"/>
         <LinearLayout
             android:gravity="center"

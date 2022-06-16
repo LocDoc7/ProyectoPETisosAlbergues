@@ -247,7 +247,6 @@ public class EditarVisitaFragment extends Fragment {
             btnActualizar.setEnabled(false);
             cargarWebServiceActulizar();
         }
-        
     }
 
     private void cargarWebServiceActulizar() {

@@ -35,7 +35,7 @@
             android:textColor="@color/secondaryTextColor"
             android:layout_marginTop="10dp"
             android:text="Producto:"
-            android:textSize="18sp"/>
+            android:textSize="17sp"/>
         <TextView
             android:layout_marginTop="5dp"
             android:id="@+id/tvNombreProductoIntercambiado"
@@ -69,7 +69,7 @@
             android:textColor="@color/secondaryTextColor"
             android:layout_marginTop="5dp"
             android:text="Valido hasta:"
-            android:textSize="18sp"/>
+            android:textSize="17sp"/>
         <TextView
             android:layout_marginTop="5dp"
             android:id="@+id/tvFechaValidaProductoIntercambiado"
@@ -90,6 +90,7 @@
                 android:background="@drawable/btn_ui2"
                 android:id="@+id/btnLoTengoQRIntercambio"
                 android:text="HECHO"
+                android:textSize="17sp"
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"/>
