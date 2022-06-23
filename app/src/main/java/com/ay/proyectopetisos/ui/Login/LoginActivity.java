@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     ProgressBar progressBar;
     RequestQueue requestQueue;
     JsonObjectRequest jsonObjectRequest;
-    int idusuario,cantDonaciones, cantCollares;
+    int idusuario,cantDonaciones, cantCollares,perScore;
     private boolean hayError;
 
     @Override
@@ -140,8 +140,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void cargarWebService(String usuario, String contra) {
+        SharedPreferences sp1 = getSharedPreferences("preferencias", Context.MODE_PRIVATE);
+        String token = sp1.getString("token","");
         progressBar.setVisibility(View.VISIBLE);
-        String url = Util.RUTA+"consultar_usuario.php?usuario="+usuario+"&contrasenia="+contra;
+        String url = Util.RUTA+"consultar_usuario.php?usuario="+usuario+"&contrasenia="+contra+"&token="+token;
         url = url.replace(" ", "%20");
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -155,6 +157,7 @@ public class LoginActivity extends AppCompatActivity {
                         idusuario = jsonObject.optInt("IdPersona");
                         cantDonaciones = jsonObject.optInt("perCantDonaciones");
                         cantCollares = jsonObject.optInt("perCantCollares");
+                        perScore = jsonObject.optInt("perScore");
                     }
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -167,6 +170,7 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putString("ususario",edtUsuario.getText().toString());
                 editor.putString("contraseña",edtContrasenia.getText().toString());
                 editor.putInt("cantCollares",cantCollares);
+                editor.putInt("cantScore",perScore);
                 editor.commit();
                 Intent i = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(i);

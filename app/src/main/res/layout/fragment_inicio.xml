@@ -3,17 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:orientation="vertical"
     android:id="@+id/root_frame"
     tools:context=".TabItems.Inicio.InicioFragment">
-
-    <androidx.recyclerview.widget.RecyclerView
-        tools:layout_editor_absoluteX="0dp"
-        android:padding="2.5dp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rv_inicio_parent">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:orientation="vertical">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_weight="1"
+            tools:layout_editor_absoluteX="0dp"
+            android:padding="2.5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rv_inicio_parent">
+        </androidx.recyclerview.widget.RecyclerView>
+        <com.google.android.gms.ads.AdView
+            android:layout_gravity="center"
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        </com.google.android.gms.ads.AdView>
+    </LinearLayout>
+
+
+
 
 
 </FrameLayout>

@@ -57,8 +57,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:paddingHorizontal="2.5dp"
-            android:paddingVertical="2.5dp"
+            android:padding="2.5dp"
             android:id="@+id/rv_productos_tienda"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

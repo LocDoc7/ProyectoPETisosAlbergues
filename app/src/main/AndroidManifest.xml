@@ -2,28 +2,36 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ay.proyectopetisos">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the "MyLocation" functionality.
     -->
-    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android"/>
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/PetTheme"
-        android:usesCleartextTraffic="true"
-        android:hardwareAccelerated="true">
+        android:usesCleartextTraffic="true">
+        <activity android:name=".TabItems.Juegos.GameActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity android:name=".TabItems.Juegos.PetPilotGame"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape"
+            >
 
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -38,7 +46,7 @@
 
         <activity
             android:name=".MapsActivityReg"
-            android:label="@string/title_activity_maps_reg"></activity>
+            android:label="@string/title_activity_maps_reg" />
         <activity android:name=".ui.RecupearContraseña.RecuperarActivity" />
         <activity android:name=".ui.Registro.Registro3Activity" />
         <activity android:name=".ui.Registro.Registro2Activity" />
@@ -54,6 +62,24 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notification" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/teal_200" />
+
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

@@ -24,6 +24,11 @@ import com.ay.proyectopetisos.Adapters.AlberguesAdapter;
 import com.ay.proyectopetisos.Model.Albergues;
 import com.ay.proyectopetisos.R;
 import com.ay.proyectopetisos.Util.Util;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,7 +43,7 @@ public class InicioFragment extends Fragment implements Response.Listener<JSONOb
     RequestQueue requestQueue;
     AlberguesAdapter alberguesAdapter;
     JsonObjectRequest jsonObjectRequest;
-
+    AdView adView;
 
     public InicioFragment() {
         // Required empty public constructor
@@ -52,9 +57,23 @@ public class InicioFragment extends Fragment implements Response.Listener<JSONOb
         rvAlbergues = (RecyclerView) view.findViewById(R.id.rv_inicio_parent);
         rvAlbergues.setHasFixedSize(true);
         alberguesList = new ArrayList<>();
+        adView = (AdView) view.findViewById(R.id.adView);
         requestQueue = Volley.newRequestQueue(getContext());
         cargarWebService();
+        cargarAnuncio();
+
+
         return view;
+    }
+
+    private void cargarAnuncio() {
+        MobileAds.initialize(getContext(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
     }
 
     private void cargarWebService() {

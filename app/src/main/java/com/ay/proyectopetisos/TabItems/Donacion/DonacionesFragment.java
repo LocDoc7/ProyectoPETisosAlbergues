@@ -27,6 +27,11 @@ import com.ay.proyectopetisos.R;
 import com.ay.proyectopetisos.TabItems.Inicio.AnimalesPorAlbergueFragment;
 import com.ay.proyectopetisos.TabItems.Inicio.CategoriaAnimalesAlbergueFragment;
 import com.ay.proyectopetisos.Util.Util;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,6 +41,7 @@ import java.util.ArrayList;
 
 
 public class DonacionesFragment extends Fragment {
+    AdView adView;
     RecyclerView rvAlberguesDonacion;
     TextView cantDonacionesUsuario;
     ArrayList<Albergues> alberguesList;
@@ -56,6 +62,7 @@ public class DonacionesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_donaciones, container, false);
         rvAlberguesDonacion = (RecyclerView) view.findViewById(R.id.rv_alberguesDonacion);
         cantDonacionesUsuario = view.findViewById(R.id.tv_canDonaciones);
+        adView = (AdView) view.findViewById(R.id.adViewDonaciones);
         rvAlberguesDonacion.setHasFixedSize(true);
         alberguesList = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(getContext());
@@ -64,6 +71,7 @@ public class DonacionesFragment extends Fragment {
         cantDonaciones = sp1.getInt("cantDonaciones",0);
         cantDonacionesUsuario.setText(String.valueOf(cantDonaciones));
         cargarWebService();
+        cargarAnuncio();
         return view;
     }
 
@@ -118,9 +126,18 @@ public class DonacionesFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(), "Error: " + error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "No existen albergues Registrados", Toast.LENGTH_SHORT).show();
             }
         });
         requestQueue.add(jsonObjectRequest);
+    }
+    private void cargarAnuncio() {
+        MobileAds.initialize(getContext(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
     }
 }
