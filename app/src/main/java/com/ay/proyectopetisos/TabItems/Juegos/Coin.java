@@ -22,8 +22,8 @@ public class Coin {
         width = coin.getWidth();
         height = coin.getHeight();
 
-        width /= 1.5;
-        height /= 1.5;
+        width /= 2;
+        height /= 2;
 
         /*width = (int) (width * screenRatioX);
         height = (int) (height * screenRatioY);*/

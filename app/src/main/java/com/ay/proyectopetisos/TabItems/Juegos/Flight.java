@@ -26,8 +26,8 @@ public class Flight {
         width = flight1.getWidth();
         height = flight1.getHeight();
 
-        width /= 1.5;
-        height /= 1.5;
+        width /= 2;
+        height /= 2;
 
         width = (int) (width * screenRatioX);
         height = (int) (height * screenRatioY);

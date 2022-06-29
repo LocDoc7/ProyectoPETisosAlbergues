@@ -11,7 +11,7 @@ import static com.ay.proyectopetisos.TabItems.Juegos.GameView.screenRatioX;
 import static com.ay.proyectopetisos.TabItems.Juegos.GameView.screenRatioY;
 
 public class Bird {
-    public int speed = 10;
+    public int speed = 5;
     public boolean wasShot = true;
     int x,y, width, height, birdCounter = 1;
     Bitmap bird1,bird2,bird3,bird4;
@@ -25,8 +25,8 @@ public class Bird {
         width = bird1.getWidth();
         height = bird1.getHeight();
 
-        /*width /= 1.5;
-        height /= 1.5;*/
+        width /= 2;
+        height /= 2;
 
         width = (int) (width * screenRatioX);
         height = (int) (height * screenRatioY);
