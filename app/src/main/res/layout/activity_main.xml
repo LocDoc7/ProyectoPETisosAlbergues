@@ -24,41 +24,6 @@
         app:tabIndicatorColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <!--<com.google.android.material.tabs.TabItem
-            android:id="@+id/tab_inicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/ic_inicio" />
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tab_donaciones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/ic_donacion"
-            />
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tab_juegos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/ic_play"
-            />
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tab_tienda"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/ic_tienda"
-            />
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tab_notificaciones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/ic_notificaciones"
-            />
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tab_opciones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/ic_opciones"
-            />-->
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager

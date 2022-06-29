@@ -220,11 +220,11 @@ public class GameView extends SurfaceView implements Runnable{
             Canvas canvas = getHolder().lockCanvas();
             if (level<=3){
                 canvas.drawBitmap(background1.background1,0,0,paint);
-            }else if (level<=7){
+            }else if (level<=50){
                 canvas.drawBitmap(background1.background2,0,0,paint);
-            }else if (level<10){
+            }else if (level<100){
                 canvas.drawBitmap(background1.background3,0,0,paint);
-            }else if (level==10){
+            }else if (level==100){
                 level = 0;
             }
 
