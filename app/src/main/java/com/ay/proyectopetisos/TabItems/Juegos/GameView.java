@@ -162,10 +162,10 @@ public class GameView extends SurfaceView implements Runnable{
                 cloud.y = random.nextInt(screenY - cloud.height);
             }
 
-            if (Rect.intersects(cloud.getCollisionShape(),flight.getCollisionShape())){
+            /*if (Rect.intersects(cloud.getCollisionShape(),flight.getCollisionShape())){
                 isGameOver = true;
                 return;
-            }
+            }*/
         }
         for (Cloud cloud : trashCloud)
             bullets.remove(cloud);
@@ -198,7 +198,7 @@ public class GameView extends SurfaceView implements Runnable{
                     isGameOver = true;
                     return;
                 }
-                int bound = (int) (10 * screenRatioX);
+                int bound = (int) (1.5 * screenRatioX);
                 bird.speed = random.nextInt(bound);
                 if (bird.speed < 10 * screenRatioX)
                     bird.speed = (int) (10 * screenRatioX);

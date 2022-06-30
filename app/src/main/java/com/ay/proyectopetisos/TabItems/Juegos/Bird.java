@@ -25,8 +25,8 @@ public class Bird {
         width = bird1.getWidth();
         height = bird1.getHeight();
 
-        width /= 2;
-        height /= 2;
+        /*width /= 1.5;
+        height /= 1.5;*/
 
         width = (int) (width * screenRatioX);
         height = (int) (height * screenRatioY);

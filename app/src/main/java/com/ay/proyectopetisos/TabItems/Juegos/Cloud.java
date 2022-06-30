@@ -31,7 +31,7 @@ public class Cloud {
         y = -height;
     }
 
-    Rect getCollisionShape(){
+    /*Rect getCollisionShape(){
         return new Rect(x,y,x + width, y + height);
-    }
+    }*/
 }

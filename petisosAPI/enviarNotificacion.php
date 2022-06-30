@@ -1,6 +1,6 @@
 <?php
     function enviarPush($to = '', $data = array()){
-        $apiKey = "AAAAqUTxBNk:APA91bFFrwkK5O_Pe5nIJbW6uLFt53sGcHpKhVRW430dRl6su4qti1KpAh0NUTMQEBna3WWRzKqUbYyOYCVok7GyYfIRSR1SSWD9dvGUazqvoKvzFeg2kKAJtH0Qa6MFPLmK09tvVwBN";
+        $apiKey = "AAAAM4xvNBg:APA91bGD-TpAlAj4qzIvgL1TWGAvdrXWupEnJy81DrdV2oo_wWtDHIj_iWXMlSFkvMO1WJkQA0NApLYHAAcTrtadk8mmaW1goTP5Mv__m0s8xnca4SfCDwZvOiLfEdon2vSzbNZ3DIVN";
 
         $fields = array(
             'to' => $to,
@@ -32,8 +32,8 @@
         $to = "/topics/dispositivos";
 
         $data = array(
-            'title' => 'Mensaje de Prueba',
-            'body' => 'Tiene un nuevo mensaje'
+            'title' => 'BIENVENIDO A PETISOS',
+            'body' => 'Muchas gracias por apoyar este proyecto <3'
         );
 
         print_r(enviarPush($to,$data));
