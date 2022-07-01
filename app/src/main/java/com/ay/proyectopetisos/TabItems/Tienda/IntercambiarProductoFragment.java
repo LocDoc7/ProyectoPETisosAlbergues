@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -69,6 +70,7 @@ public class IntercambiarProductoFragment extends Fragment {
     JsonObjectRequest jsonObjectRequest;
     RequestQueue requestQueue;
     Dialog Mydialog;
+    MediaPlayer mediaPlayer;
 
     public IntercambiarProductoFragment() {
         // Required empty public constructor
@@ -92,6 +94,7 @@ public class IntercambiarProductoFragment extends Fragment {
         idAlbergue = bundle.getInt("idAlbergue");
         idProducto = bundle.getInt("idProducto");
         requestQueue = Volley.newRequestQueue(getContext());
+        mediaPlayer = MediaPlayer.create(getContext(), R.raw.success);
 
         tvDescripcionProducto = view.findViewById(R.id.tvDescProducto_intercambio);
         tvCantCollaresIntercambio = view.findViewById(R.id.tv_canMonedasIntercambio);
@@ -223,6 +226,7 @@ public class IntercambiarProductoFragment extends Fragment {
 
     private void cargarDialog(int id_Venta,String ven_Estado,String pro_Nombre,int det_cantidad,double det_precio,float collaresRest) {
         pbLoading.setVisibility(View.GONE);
+        mediaPlayer.start();
         SharedPreferences preferences = getContext().getSharedPreferences("preferencias", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("cantCollares",(int) collaresRest);

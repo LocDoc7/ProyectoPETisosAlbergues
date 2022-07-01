@@ -1,6 +1,7 @@
 package com.ay.proyectopetisos.TabItems.Inicio;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -8,6 +9,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -15,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
+import android.text.Layout;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +33,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -57,11 +63,13 @@ public class RegistrarVisitaFragment extends Fragment {
     Button btn_registrarVisita;
     ProgressBar progressBar;
     int idCanino,idPersona;
-    String nombreAlbergue,nombreCanino,sexoCanino,edadCanino,imgenCanino,hora_visita,fecha_visita="";
+    String nombreAlbergue,nombreCanino,sexoCanino,edadCanino,imgenCanino,hora_visita,comentario,fecha_visita="";
     int T1Hour,T1Minute;
     private boolean hayError;
+    Dialog Mydialog;
     StringRequest stringRequest;
     RequestQueue requestQueue;
+    MediaPlayer mediaPlayer;
 
     public RegistrarVisitaFragment() {
         // Required empty public constructor
@@ -93,6 +101,7 @@ public class RegistrarVisitaFragment extends Fragment {
         edt_Descripcion = view.findViewById(R.id.edt_descripcion_reg_visita);
         btn_registrarVisita = view.findViewById(R.id.btn_registar_visita_reg_visita);
         progressBar = view.findViewById(R.id.progress_bar_reg_visita);
+        mediaPlayer = MediaPlayer.create(getContext(), R.raw.success);
 
         tv_nombreAlbergue.setText(nombreAlbergue);
         tv_nombreCanino.setText(nombreCanino);
@@ -150,13 +159,14 @@ public class RegistrarVisitaFragment extends Fragment {
     private void comprobarDatos() {
 
         hora_visita = edt_Hora.getText().toString();
+        comentario = edt_Descripcion.getText().toString();
         hayError = false;
 
         if (hora_visita.isEmpty()) {
             Toast.makeText(getContext(), "Por favor, seleccione la hora de visita", Toast.LENGTH_SHORT).show();
             hayError = true;
         }else if (T1Hour<8 || T1Hour>20){
-            Toast.makeText(getContext(), "Por favor, seleccione una hora entre el rango de 8 am y 8 pm", Toast.LENGTH_SHORT).show();
+            cargarDialogError();
             edt_Hora.setText("");
             edt_Hora.setHint("Seleccione una hora valida");
             hayError = true;
@@ -172,6 +182,23 @@ public class RegistrarVisitaFragment extends Fragment {
         }
     }
 
+    private void cargarDialogError() {
+        Mydialog = new Dialog(getContext());
+        Mydialog.setContentView(R.layout.dialog_error);
+        ((TextView) Mydialog.findViewById(R.id.tvTittle)).setText("Hora no valida");
+        ((TextView) Mydialog.findViewById(R.id.tvMensaje)).setText("Por favor seleccione una hora entre las 8 am. y 8 pm.");
+        ((Button) Mydialog.findViewById(R.id.btnConfirmarDialog)).setText("Esta bien");
+        Mydialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Mydialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        Mydialog.findViewById(R.id.btnConfirmarDialog).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Mydialog.dismiss();
+            }
+        });
+        Mydialog.show();
+    }
+
     private void cargarWebService() {
         progressBar.setVisibility(View.VISIBLE);
         String url = Util.RUTA+"reg_visita.php";
@@ -184,8 +211,7 @@ public class RegistrarVisitaFragment extends Fragment {
                     @Override
                     public void run() {
                         progressBar.setVisibility(View.GONE);
-                        Toast.makeText(getContext(), "Se ha registrado tu visita!", Toast.LENGTH_SHORT).show();
-                        enviarDatos();
+                        cargarDialogSuccess();
                     }
                 }, 1000);
             }
@@ -203,11 +229,31 @@ public class RegistrarVisitaFragment extends Fragment {
                 params.put("idcanino",String.valueOf(idCanino));
                 params.put("fecha_reg",fecha_visita);
                 params.put("hora_reg",hora_visita);
+                params.put("comentario",comentario);
                 return params;
             }
         };
         requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
+    }
+
+    private void cargarDialogSuccess() {
+        mediaPlayer.start();
+        Mydialog = new Dialog(getContext());
+        Mydialog.setContentView(R.layout.dialog_succes);
+        ((TextView) Mydialog.findViewById(R.id.tvTittleSuccess)).setText("¡Gracias por visitarme!");
+        ((TextView) Mydialog.findViewById(R.id.tvMensajeSuccess)).setText("Tu visita se ha registrado correctamente, estoy muy emocionado de concerte pronto...");
+        ((Button) Mydialog.findViewById(R.id.btnConfirmarDialogSuccess)).setText("Continuar");
+        Mydialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Mydialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        Mydialog.findViewById(R.id.btnConfirmarDialogSuccess).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Mydialog.dismiss();
+            }
+        });
+        Mydialog.show();
+        enviarDatos();
     }
 
     private void enviarDatos() {

@@ -1,9 +1,13 @@
 package com.ay.proyectopetisos.TabItems.Donacion;
 
+import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,6 +43,8 @@ public class DonacionesMediosDetalleBCPFragment extends Fragment {
     String albergueNombre,numCuenta,numCCI;
     int idAlbergue,cantDonacion;
     RequestQueue requestQueue;
+    Dialog Mydialog;
+    MediaPlayer mediaPlayer;
     JsonObjectRequest jsonObjectRequest;
 
     public DonacionesMediosDetalleBCPFragment() {
@@ -63,12 +69,14 @@ public class DonacionesMediosDetalleBCPFragment extends Fragment {
         albergueNombre = bundle.getString("nombreAlbergue");
         idAlbergue = bundle.getInt("idAlbergue");
         cargarWebService();
+        mediaPlayer = MediaPlayer.create(getContext(), R.raw.success);
         tvcantDonaciones.setText(String.valueOf(cantDonacion));
         tvNombreAlbergue.setText(albergueNombre);
 
         btn_donacion_finalizada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                cargarDialogGracias();
                 AppCompatActivity activity = (AppCompatActivity) getContext();
                 Fragment fragment = new DonacionesFragment();
                 FragmentManager fm = activity.getSupportFragmentManager();
@@ -125,5 +133,22 @@ public class DonacionesMediosDetalleBCPFragment extends Fragment {
             }
         });
         requestQueue.add(jsonObjectRequest);
+    }
+    private void cargarDialogGracias() {
+        mediaPlayer.start();
+        Mydialog = new Dialog(getContext());
+        Mydialog.setContentView(R.layout.dialog_gracias);
+        ((TextView) Mydialog.findViewById(R.id.tvTittleGracias)).setText("¡Gracias por tu apoyo!");
+        ((TextView) Mydialog.findViewById(R.id.tvMensajeGracias)).setText("Muchas gracias por ayudarnos a seguir ayudando, tu donación es muy bien recibida por todos nuestros peluditos en el albergue");
+        ((Button) Mydialog.findViewById(R.id.btnConfirmarDialogGracias)).setText("Continuar");
+        Mydialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Mydialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        Mydialog.findViewById(R.id.btnConfirmarDialogGracias).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Mydialog.dismiss();
+            }
+        });
+        Mydialog.show();
     }
 }

@@ -1,71 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/giferror"
+        android:id="@+id/gifsuccess"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_gravity="top|center"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/dogsad" />
+        app:lottie_rawRes="@raw/happydog2"/>
 
     <LinearLayout
-        android:layout_marginTop="250dp"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/back_dialog"
         android:orientation="vertical"
-        android:padding="20dp"
-        android:background="@drawable/back_dialog">
+        android:padding="20dp">
+
         <TextView
-            android:id="@+id/tvTittle"
+            android:id="@+id/tvTittleGracias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:text=""
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:text=""
-            android:textSize="17sp"
-            />
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
         <TextView
-            android:layout_marginTop="10dp"
-            android:id="@+id/tvMensaje"
+            android:id="@+id/tvMensajeGracias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
             android:text=""
             android:justificationMode="inter_word"
-            android:textSize="17sp"
-            />
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
         <LinearLayout
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
             <Button
+                android:id="@+id/btnConfirmarDialogGracias"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:layout_marginRight="5dp"
-                android:background="@drawable/btn_ui2"
                 android:layout_weight="1"
-                android:id="@+id/btnConfirmarDialog"
-                android:textColor="@color/white"
-                android:textSize="17sp"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"/>
-            <Button
-                android:layout_marginLeft="5dp"
                 android:background="@drawable/btn_ui2"
-                android:layout_weight="1"
                 android:textColor="@color/white"
-                android:id="@+id/btnRechazarDialog"
-                android:layout_width="match_parent"
-                android:textSize="17sp"
-                android:layout_height="40dp"/>
+                android:textSize="17sp" />
         </LinearLayout>
     </LinearLayout>
-
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/gifcelebration"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_gravity="top"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/congratulations"/>
 
 </FrameLayout>

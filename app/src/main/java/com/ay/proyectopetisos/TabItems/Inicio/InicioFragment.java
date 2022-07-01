@@ -1,6 +1,9 @@
 package com.ay.proyectopetisos.TabItems.Inicio;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -45,6 +50,7 @@ public class InicioFragment extends Fragment implements Response.Listener<JSONOb
     JsonObjectRequest jsonObjectRequest;
     AdView adView;
 
+
     public InicioFragment() {
         // Required empty public constructor
     }
@@ -63,8 +69,10 @@ public class InicioFragment extends Fragment implements Response.Listener<JSONOb
         cargarAnuncio();
 
 
+
         return view;
     }
+
 
     private void cargarAnuncio() {
         MobileAds.initialize(getContext(), new OnInitializationCompleteListener() {

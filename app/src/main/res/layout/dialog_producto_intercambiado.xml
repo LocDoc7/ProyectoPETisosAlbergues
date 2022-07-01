@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/gifsuccess"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="top|center"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/happydog"/>
 
     <LinearLayout
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="200dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -96,11 +106,14 @@
                 android:layout_height="40dp"/>
         </LinearLayout>
     </LinearLayout>
-    <ImageView
-        android:layout_marginTop="-215dp"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/gifcelebration"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_gravity="center"
-        android:background="@drawable/cachorro"/>
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/congratulations"/>
 
 </FrameLayout>

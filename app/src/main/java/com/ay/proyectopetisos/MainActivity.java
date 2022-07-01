@@ -7,7 +7,18 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ay.proyectopetisos.Adapters.TabsAdapter;
@@ -25,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     TabsAdapter tabsAdapter;
+    Dialog Mydialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +90,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        cargarDialogBienvenida();
+
     }
 
     private void limpiarBackStack() {
@@ -85,5 +100,34 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0;i < fm.getBackStackEntryCount();++i){
             fm.popBackStack();
         }
+    }
+    private void cargarDialogBienvenida() {
+        Mydialog = new Dialog(this);
+        Mydialog.setContentView(R.layout.dialog_bienvenida);
+        Mydialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Mydialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        Mydialog.findViewById(R.id.btn_facebookbienvenida).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "CLick", Toast.LENGTH_SHORT).show();
+                Uri uri = Uri.parse("https://www.facebook.com/Petisos-101614329283353/?ti=as");
+
+                try {
+                    ApplicationInfo applicationInfo = getPackageManager().getApplicationInfo("com.facebook.katana", 0);
+                    if (applicationInfo.enabled) {
+                        uri = Uri.parse("fb://page/101614329283353");
+                    }
+                } catch (PackageManager.NameNotFoundException ignored) {
+                }
+                startActivity(new Intent(Intent.ACTION_VIEW, uri));
+            }
+        });
+        Mydialog.findViewById(R.id.btnConfirmarDialogBienvenida).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Mydialog.dismiss();
+            }
+        });
+        Mydialog.show();
     }
 }

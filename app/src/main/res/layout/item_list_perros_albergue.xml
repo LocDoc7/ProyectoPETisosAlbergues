@@ -183,7 +183,7 @@
             android:background="@drawable/btn_ui2"
             android:textColor="@color/white"
             android:textSize="17sp"
-            android:text="Visitar"/>
+            android:text="Agendar Visita"/>
 
     </LinearLayout>
 

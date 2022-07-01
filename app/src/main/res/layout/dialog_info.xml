@@ -11,28 +11,36 @@
         android:layout_gravity="top|center"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/dogsad" />
+        app:lottie_rawRes="@raw/infodog" />
 
     <LinearLayout
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="210dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginHorizontal="10dp"
         android:padding="20dp"
         android:background="@drawable/back_dialog">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/img_juegoInfo"
+            />
         <TextView
-            android:id="@+id/tvTittle"
+            android:layout_marginTop="5dp"
+            android:id="@+id/tvTittleInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:text=""
-            android:textSize="17sp"
+            android:textSize="20sp"
             />
         <TextView
             android:layout_marginTop="10dp"
-            android:id="@+id/tvMensaje"
+            android:id="@+id/tvMensajeInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
@@ -50,19 +58,10 @@
                 android:layout_marginRight="5dp"
                 android:background="@drawable/btn_ui2"
                 android:layout_weight="1"
-                android:id="@+id/btnConfirmarDialog"
+                android:id="@+id/btnConfirmarDialogInfo"
                 android:textColor="@color/white"
                 android:textSize="17sp"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"/>
-            <Button
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/btn_ui2"
-                android:layout_weight="1"
-                android:textColor="@color/white"
-                android:id="@+id/btnRechazarDialog"
-                android:layout_width="match_parent"
-                android:textSize="17sp"
                 android:layout_height="40dp"/>
         </LinearLayout>
     </LinearLayout>
