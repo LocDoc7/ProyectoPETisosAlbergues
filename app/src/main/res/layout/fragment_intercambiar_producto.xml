@@ -178,50 +178,7 @@
                     android:textSize="17sp"
                     android:text="0"/>
             </LinearLayout>
-            <TextView
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Ubicación:"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                />
-            <TextView
-                app:textAllCaps="true"
-                android:id="@+id/tvNombreAlbergue_intercambio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="NOMBRE ALBERGUE"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="¿Como llegar?"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    />
-                <ImageButton
-                    android:layout_weight="1"
-                    android:id="@+id/btn_comollegar_albergue_intercambio"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:background="@drawable/btn_ui2"
-                    android:src="@drawable/ic_map_reg2"
-                    />
-            </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -231,7 +188,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
+                android:layout_weight="4"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -334,6 +291,61 @@
                     </LinearLayout>
 
                 </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/backgroundcolorprimary"/>
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Ubicación:"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    />
+                <TextView
+                    app:textAllCaps="true"
+                    android:id="@+id/tvNombreAlbergue_intercambio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="NOMBRE ALBERGUE"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="¿Como llegar?"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        />
+                    <ImageButton
+                        android:layout_weight="1"
+                        android:id="@+id/btn_comollegar_albergue_intercambio"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/btn_ui2"
+                        android:src="@drawable/ic_map_reg2"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/backgroundcolorprimary"/>
 
             </LinearLayout>
 

@@ -41,6 +41,7 @@
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
             android:text="Seleccione un albergue para donar"
             android:textColor="@color/black"
             android:textSize="17sp"
