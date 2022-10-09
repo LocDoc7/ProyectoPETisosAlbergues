@@ -1,5 +1,11 @@
 <resources>
-    <string name="app_name">Petisos</string>
+    <string name="app_name">Petisos Albergue</string>
+
+    <string name="facebook_app_id">617391896633475</string>
+    <string name="fb_login_protocol_scheme">fb617391896633475</string>
+    <string name="facebook_client_token">eab60b6f5d9e9652fd2bc740fbbe48bc</string>
+
+
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>

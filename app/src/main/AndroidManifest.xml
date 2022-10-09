@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.ay.proyectopetisos">
+    package="com.ay.proyectopetisosalbergue">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -22,11 +22,29 @@
         android:supportsRtl="true"
         android:theme="@style/PetTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".TabItems.Juegos.GameActivity"
+
+
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges=
+                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name="com.ay.proyectopetisosalbergue.TabItems.Juegos.GameActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="landscape">
         </activity>
-        <activity android:name=".TabItems.Juegos.PetPilotGame"
+        <activity android:name="com.ay.proyectopetisosalbergue.TabItems.Juegos.PetPilotGame"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="landscape"
             >
@@ -44,16 +62,20 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
+
+
         <activity
-            android:name=".MapsActivityReg"
+            android:name="com.ay.proyectopetisosalbergue.MapsActivityReg"
             android:label="@string/title_activity_maps_reg" />
-        <activity android:name=".ui.RecupearContraseña.RecuperarActivity" />
-        <activity android:name=".ui.Registro.Registro3Activity" />
-        <activity android:name=".ui.Registro.Registro2Activity" />
-        <activity android:name=".ui.Registro.Registro1Activity" />
-        <activity android:name=".ui.Login.LoginActivity" />
+        <activity android:name="com.ay.proyectopetisosalbergue.ui.RecupearContraseña.RecuperarActivity" />
+        <activity android:name="com.ay.proyectopetisosalbergue.ui.Registro.Registro3Activity" />
+        <activity android:name="com.ay.proyectopetisosalbergue.ui.Registro.Registro2Activity" />
+        <activity android:name="com.ay.proyectopetisosalbergue.ui.Registro.Registro1Activity" />
+        <activity android:name="com.ay.proyectopetisosalbergue.ui.Login.LoginActivity" />
         <activity
-            android:name=".splash"
+            android:name="com.ay.proyectopetisosalbergue.splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,7 +83,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.ay.proyectopetisosalbergue.MainActivity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
@@ -74,7 +96,7 @@
             android:resource="@color/teal_200" />
 
         <service
-            android:name=".MyFirebaseMessagingService"
+            android:name="com.ay.proyectopetisosalbergue.MyFirebaseMessagingService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

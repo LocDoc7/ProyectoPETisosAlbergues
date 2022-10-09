@@ -33,6 +33,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221399430168:android:633c75730e4f4357f97f6d",
+        "android_client_info": {
+          "package_name": "com.ay.proyectopetisosalbergue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "221399430168-fd9ic4m84fv2lqriq6f20bqijm5gl18r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXJBqK1arVzNOgp2JdT8ijoCEg1W2TXOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "221399430168-fd9ic4m84fv2lqriq6f20bqijm5gl18r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

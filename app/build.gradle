@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -7,7 +8,7 @@ android {
     buildToolsVersion '30.0.2'
 
     defaultConfig {
-        applicationId "com.ay.proyectopetisos"
+        applicationId "com.ay.proyectopetisosalbergue"
         minSdkVersion 23
         targetSdkVersion 31
         versionCode 1
@@ -54,9 +55,10 @@ dependencies {
     implementation 'com.hbb20:ccp:2.3.7'
     implementation 'com.journeyapps:zxing-android-embedded:4.2.0'
     implementation platform('com.google.firebase:firebase-bom:30.1.0')
+    implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
     implementation 'com.google.android.gms:play-services-ads:21.0.0'
     implementation 'com.google.android.gms:play-services-vision:20.0.0'
-
+    implementation 'com.facebook.android:facebook-login:latest.release'
 }
 apply plugin: 'com.google.gms.google-services'

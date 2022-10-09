@@ -37,7 +37,20 @@
             android:text="Iniciar Sesión"
             android:textSize="25sp"
             />
+
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            >
+            <com.facebook.login.widget.DeviceLoginButton
+                android:id="@+id/btnLoginFB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <!--<LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -89,7 +102,7 @@
                 android:textColor="@color/white"
                 android:textColorHint="@color/terciarioTextColor"
                 android:background="@drawable/edtback"/>
-        </LinearLayout>
+        </LinearLayout>-->
 
     </LinearLayout>
     <LinearLayout
